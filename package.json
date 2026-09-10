@@ -1,0 +1,19 @@
+{
+  "name": "delight",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace @delight/api\" \"npm run dev --workspace @delight/web\"",
+    "build": "npm run build --workspace @delight/shared && npm run build --workspace @delight/api && npm run build --workspace @delight/web",
+    "start": "npm run start --workspace @delight/api",
+    "typecheck": "npm run typecheck --workspace @delight/shared && npm run typecheck --workspace @delight/api && npm run typecheck --workspace @delight/web"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "concurrently": "^9.2.1"
+  }
+}
