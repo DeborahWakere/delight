@@ -8,7 +8,7 @@ import multer from "multer";
 import { DBOS } from "@dbos-inc/dbos-sdk";
 import { delightWorkflow } from "./workflow.js";
 
-const PORT = Number(process.env.PORT || 3001);
+const PORT = Number(process.env.PORT || 3000);
 const WEB_ORIGIN = process.env.WEB_ORIGIN || "http://localhost:5173";
 const uploadDir = path.resolve(process.cwd(), "uploads");
 await fs.mkdir(uploadDir, { recursive: true });
@@ -30,7 +30,11 @@ const app = express();
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || /^https?:\/\/localhost:\d+$/.test(origin)) {
+      if (
+        !origin ||
+        /^https?:\/\/localhost:\d+$/.test(origin) ||
+        origin === WEB_ORIGIN
+      ) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
