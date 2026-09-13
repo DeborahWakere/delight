@@ -15,5 +15,9 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "concurrently": "^9.2.1"
+  },
+  "dependencies": {
+    "@dbos-inc/otel": "^4.27.6",
+    "winston-transport": "^4.9.0"
   }
 }

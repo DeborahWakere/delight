@@ -51,7 +51,6 @@ DBOS is used for the recoverable part of the agent. Its workflow state is stored
 
 ```bash
 cp .env.example .env
-# Put your OpenAI API key in .env
 npm install
 docker compose up -d
 npm run dev
